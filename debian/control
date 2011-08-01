@@ -1,0 +1,12 @@
+Source: libatomia-bindings-coreapi-perl
+Section: non-free/perl
+Priority: optional
+Build-Depends: debhelper (>= 4.0.2)
+Build-Depends-Indep: perl (>= 5.8.6), perl-modules
+Maintainer: Jimmy Bergman <jimmy@atomia.com>
+Standards-Version: 3.6.1
+
+Package: libatomia-bindings-coreapi-perl
+Architecture: all
+Depends: perl-modules, perl-base, libconfig-general-perl, libsoap-lite-perl
+Description: Perl bindings for connecting to Atomia CoreAPI
