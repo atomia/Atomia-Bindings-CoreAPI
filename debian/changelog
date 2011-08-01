@@ -1,3 +1,9 @@
+libatomia-bindings-coreapi-perl (1.0.1) lucid; urgency=low
+
+  * Add getprops
+
+ -- Jimmy Bergman <jimmy@sigint.se>  Mon, 1 Aug 2011 16:13:09 +0200
+
 libatomia-bindings-coreapi-perl (1.0.0) lucid; urgency=low
 
   * Initial version.

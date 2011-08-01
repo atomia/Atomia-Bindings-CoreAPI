@@ -64,4 +64,21 @@ sub setprop {
 	}
 }
 
+sub getprop {
+	my $self = shift;
+	my $name = shift;
+
+	if (defined($self->fetched->{"properties"}) && ref($self->fetched->{"properties"}) eq "HASH" && defined($self->fetched->{"properties"}->{"ProvisioningServiceProperty"})) {
+		foreach my $prophash (@{$self->fetched->{"properties"}->{"ProvisioningServiceProperty"}}) {
+			if (defined($prophash) && ref($prophash) eq "HASH" && defined($prophash->{"Name"}) && $prophash->{"Name"} eq $name) {
+				return $prophash->{"propStringValue"};
+			}
+		}
+
+		die Atomia::Bindings::CoreAPI::Exception->new(message => "property with name $name didn't exist in ProvisioningService object");
+	} else {
+		die Atomia::Bindings::CoreAPI::Exception->new(message => "error getting property of ProvisioningService, no properties exist in object used to construct service object");
+	}
+}
+
 1;
