@@ -16,7 +16,7 @@ send merge request.
                 endpoint => "https://some.provisioning.host/CoreAPIBasicAuth.svc",
                 username => "Administrator", password => "somepass");
 
-        $services = $coreapi->FindServicesByPath(
+        my $services = $coreapi->FindServicesByPath(
                 Atomia::Bindings::CoreAPI::ServiceSearchCriteriaArray->new(criterias => [ {
                         parent_service => undef,
                         service_name => "CsInstances",
