@@ -1,3 +1,9 @@
+libatomia-bindings-coreapi-perl (1.0.2) lucid; urgency=low
+
+  * Fix ServiceSearchCriteria serialization when parent_service is set
+
+ -- Jimmy Bergman <jimmy@sigint.se>  Tue, 2 Aug 2011 09:50:04 +0200
+
 libatomia-bindings-coreapi-perl (1.0.1) lucid; urgency=low
 
   * Add getprops

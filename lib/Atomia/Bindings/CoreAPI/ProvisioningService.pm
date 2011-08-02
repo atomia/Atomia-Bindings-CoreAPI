@@ -9,6 +9,7 @@ has 'fetched' => (is => 'rw');
 
 sub serialize {
 	my $self = shift;
+	my $override_element_name = shift;
 
 	my $class_name = blessed($self->fetched);
 
@@ -27,7 +28,7 @@ sub serialize {
 		} @{$self->fetched->{"properties"}->{"ProvisioningServiceProperty"}};
 	}
 
-	my $serialized = SOAP::Data->name($self->element_name)->attr({ 'i:type' => "a:$class_name", 'xmlns:i' => 'http://www.w3.org/2001/XMLSchema-instance', 'xmlns:a' => 'http://schemas.datacontract.org/2004/07/Atomia.Provisioning.Base' })->value(\SOAP::Data->value(
+	my $serialized = SOAP::Data->name(defined($override_element_name) ? $override_element_name : $self->element_name)->attr({ 'i:type' => "a:$class_name", 'xmlns:i' => 'http://www.w3.org/2001/XMLSchema-instance', 'xmlns:a' => 'http://schemas.datacontract.org/2004/07/Atomia.Provisioning.Base' })->value(\SOAP::Data->value(
 		SOAP::Data->name("a:AccountOwnerId")->value($self->fetched->{"AccountOwnerId"})->type('string'),
 		SOAP::Data->name("a:CurrentRequestId")->value($self->fetched->{"CurrentRequestId"})->type('string'),
 		defined($self->fetched->{"Parent"})

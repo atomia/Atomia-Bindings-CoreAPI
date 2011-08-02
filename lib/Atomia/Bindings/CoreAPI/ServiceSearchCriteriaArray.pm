@@ -12,7 +12,7 @@ sub serialize {
 
 	my @serialized_criterias = map {
 		SOAP::Data->name("a:ServiceSearchCriteria")->attr({ 'xmlns:a' => 'http://schemas.datacontract.org/2004/07/Atomia.Provisioning.Base' })->value(\SOAP::Data->value(
-			defined($_->{"parent_service"}) ? $_->{"parent_service"} : SOAP::Data->name("a:ParentService")->value(undef),
+			defined($_->{"parent_service"}) ? $_->{"parent_service"}->serialize("a:ParentService") : SOAP::Data->name("a:ParentService")->value(undef),
 			SOAP::Data->name("a:ServiceName")->value($_->{"service_name"})->type('string'),
 			SOAP::Data->name("a:ServicePath")->value($_->{"service_path"})->type('string'),
 			))

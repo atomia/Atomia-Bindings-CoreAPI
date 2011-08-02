@@ -11,6 +11,7 @@ use Atomia::Bindings::CoreAPI::Account;
 use Atomia::Bindings::CoreAPI::ProvisioningService;
 use Atomia::Bindings::CoreAPI::ServiceName;
 use Atomia::Bindings::CoreAPI::ServiceSearchCriteriaArray;
+use Atomia::Bindings::CoreAPI::StringWithName;
 
 use Scalar::Util qw(blessed);
 our $AUTOLOAD;
