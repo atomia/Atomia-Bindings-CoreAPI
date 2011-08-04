@@ -66,7 +66,7 @@ sub BUILD {
 	        -> xmlschema(2001)
 	        -> default_ns('http://atomia.com/atomia/provisioning/')
 	        -> on_action(sub { sprintf '"%sICoreApi/%s"', @_ })
-	        -> proxy($endpoint)
+	        -> proxy($endpoint, timeout => $self->config->{"endpoint_timeout"} || 600)
 		->  on_fault(sub {
 			my($soapself, $res) = @_;
 			die Atomia::Bindings::CoreAPI::Exception->new(message => 
